@@ -1,10 +1,10 @@
 import picamera # picamera library is used as a python interface to the raspberry pi camera.
-from time import sleep
-from subprocess import call
+from time import sleep 
+from subprocess import call #subprocess is a library for python to interact with command terminal
 
 """
     Simple python script that imports picamera library in order to use the raspberry camera
-    and program it to take a picture when this script is executed.
+    and program it to take a video when this script is executed.
 
     Ref: https://www.raspberrypi.org/documentation/usage/camera/python/README.md
 """
