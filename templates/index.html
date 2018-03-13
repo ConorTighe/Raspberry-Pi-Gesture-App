@@ -23,6 +23,7 @@
             window.onload = function() {
               // Will be true if bootstrap is loaded, false otherwise
               var bootstrap_enabled = (typeof $().modal == 'function');
+
               console.log(bootstrap_enabled);
               var img = document.getElementById('img');
               var tracker = new tracking.ObjectTracker(['face', 'eye', 'mouth']);
@@ -52,13 +53,13 @@
         <nav class="navbar navbar-default">
                 <div class="container-fluid">
                   <div class="navbar-header">
-                    <a class="navbar-brand" href="#">WebSiteName</a>
+                    <a class="navbar-brand" href="#">Gesture Project</a>
                   </div>
                   <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Page 1</a></li>
-                    <li><a href="#">Page 2</a></li>
-                    <li><a href="#">Page 3</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">User guide</a></li>
+                    <li><a href="#">Report an issue</a></li>
                   </ul>
                 </div>
       </nav>
