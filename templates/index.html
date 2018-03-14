@@ -1,1 +1,84 @@
-<h1>The landing page</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- trackingjs imports -->
+    <script src="{{url_for('static', filename='./tracking.js-master/build/tracking-min.js')}}"></script>
+    <script src="{{url_for('static', filename='./tracking.js-master/build/data/face-min.js')}}"></script>
+    <script src="{{url_for('static', filename='./tracking.js-master/build/data/eye-min.js')}}"></script>
+    <script src="{{url_for('static', filename='./tracking.js-master/build/data/mouth-min.js')}}"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+   <style>
+        .rect {
+          border: 2px solid #a64ceb;
+          left: -1000px;
+          position: absolute;
+          top: -1000px;
+        }
+    </style>
+
+    <script>
+            window.onload = function() {
+              // Will be true if bootstrap is loaded, false otherwise
+              var bootstrap_enabled = (typeof $().modal == 'function');
+
+              console.log(bootstrap_enabled);
+              var img = document.getElementById('img');
+              var tracker = new tracking.ObjectTracker(['face', 'eye', 'mouth']);
+              tracker.setStepSize(1.7);
+              tracking.track('#img', tracker);
+              tracker.on('track', function(event) {
+                event.data.forEach(function(rect) {
+                console.log("tracker added!");
+                  window.plot(rect.x, rect.y, rect.width, rect.height);
+                });
+              });
+              window.plot = function(x, y, w, h) {
+                var rect = document.createElement('div');
+                document.querySelector('.demo-container').appendChild(rect);
+                rect.classList.add('rect');
+                rect.style.width = w + 'px';
+                rect.style.height = h + 'px';
+                rect.style.left = (img.offsetLeft + x) + 'px';
+                rect.style.top = (img.offsetTop + y) + 'px';
+              };
+            };
+    </script>
+
+  <body>
+
+    
+        <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Gesture Project</a>
+                  </div>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">User guide</a></li>
+                    <li><a href="#">Report an issue</a></li>
+                  </ul>
+                </div>
+      </nav>
+
+      <div class="jumbotron">
+        <h1>Security Camera</h1>
+        <h3 class="display-3">Camera view</h3>
+        <button type="button" class="btn btn-primary">Capture</button>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Apply face regognision to captured images.</h4>
+          <div class="demo-container">
+                <img id="img" src="../static/assets/example1.jpg" />
+        </div>
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+  </body>
+</html>
