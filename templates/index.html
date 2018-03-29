@@ -45,15 +45,28 @@
                 rect.style.top = (img.offsetTop + y) + 'px';
               };
             };
+
+            // Display your digit
+          	function readURL1(input) {
+            if (input.files && input.files[0]) {
+            var reader = new FileReader();
+              reader.onload = function (e) {
+                  $('#imgtarget')
+                      .attr('src', e.target.result)
+                      .width(150)
+                      .height(200);
+              };
+              reader.readAsDataURL(input.files[0]);
+              }
+            }
     </script>
 
   <body>
 
-    
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Gesture Project</a>
+                <a class="navbar-brand" >Gesture Project</a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="https://github.com/ConorTighe1995/Raspberry-Pi-Gesture-App/blob/master/README.md">User guide</a></li>
@@ -65,14 +78,18 @@
       <div class="jumbotron">
         <h1>Security Camera</h1>
         <h3 class="display-3">Camera view</h3>
-        <button type="button" class="btn btn-primary">Capture</button>
+        <form  id="fileupload" action="/camera" method="POST" role="form"
+                  enctype = "multipart/form-data" >
+            <input type = "file" name = "file" onchange="readURL1(this);" />
+            <input id="digitpredictbtn" class="btn btn-success" type = "submit"/>
+        </form>
       </div>
 
       <div class="row marketing">
         <div class="col-lg-6">
           <h4>Apply face regognision to captured images.</h4>
           <div class="demo-container">
-                <img id="img" src="../static/assets/example1.jpg" />
+                <img id="imgtarget" src="../static/assets/example1.jpg" />
         </div>
         </div>
       </div>
