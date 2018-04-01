@@ -20,15 +20,15 @@
     </style>
 
     <script>
-            window.onload = function() {
+              window.onload = function() {
               // Will be true if bootstrap is loaded, false otherwise
               var bootstrap_enabled = (typeof $().modal == 'function');
 
               console.log(bootstrap_enabled);
-              var img = document.getElementById('img');
+              var img = document.getElementById('imgtarget');
               var tracker = new tracking.ObjectTracker(['face', 'eye', 'mouth']);
               tracker.setStepSize(1.7);
-              tracking.track('#img', tracker);
+              tracking.track('#imgtarget', tracker);
               tracker.on('track', function(event) {
                 event.data.forEach(function(rect) {
                 console.log("tracker added!");
@@ -76,24 +76,24 @@
     </nav>
 
       <div class="jumbotron">
-        <h1>Security Camera</h1>
-        <h3 class="display-3">Camera view</h3>
-        <form  id="fileupload" action="/camera" method="POST" role="form"
-                  enctype = "multipart/form-data" >
-            <input type = "file" name = "file" onchange="readURL1(this);" />
-            <input id="digitpredictbtn" class="btn btn-success" type = "submit"/>
-        </form>
-      </div>
-
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>Apply face regognision to captured images.</h4>
-          <div class="demo-container">
-                <img id="imgtarget" src="../static/assets/example1.jpg" />
-        </div>
+          <div class="text-center">
+            <h1>Security Camera</h1>
+            <h3 class="display-3">Camera view</h3>
+            <form  id="fileupload" action="/camera" method="POST" role="form"
+                      enctype = "multipart/form-data" >
+                <input id="digitpredictbtn" onchange="readURL1(this);" class="btn btn-success" type = "submit"/>
+            </form>
         </div>
       </div>
 
-    </div> <!-- /container -->
+      <div class="demo-container">
+        <div class="jumbotron">
+          <div class="text-center">
+            <h4>Apply face regognision to captured images.</h4>
+           <img id="imgtarget" class="img-thumbnail" src="../static/assets/img.jpg" />
+           </div>
+        </div>
+      </div>
+
   </body>
 </html>
