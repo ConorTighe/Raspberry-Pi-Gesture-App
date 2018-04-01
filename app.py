@@ -92,7 +92,7 @@ def page_not_found(e):
         Something went horribly wrong
         </body></html>""", 404
     
-def main(_):
+if __name__ == "__main__":
     print("Running gesture based app...")
     app.run()
     
