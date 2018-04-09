@@ -30,7 +30,14 @@ def index():
 # Camera route
 @app.route("/camera", methods = ['POST'])
 def camera():
-    model=st.trainSVM(17)
+    try:
+        direct = cwd + "\\ASLClassifier.dat"
+        print(direct)
+        model=st.load(direct)
+        print("SVM Loaded successfully..")
+    except:
+        model=st.trainSVM(17)
+    
     cap=cv2.VideoCapture(0)
     font = cv2.FONT_HERSHEY_SIMPLEX
     text= " "

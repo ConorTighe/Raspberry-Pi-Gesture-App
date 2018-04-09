@@ -6,7 +6,7 @@ svm_params = dict( kernel_type = cv2.ml.SVM_RBF,
                     C=2.67, gamma=5.383 )
 class StatModel(object):
     def load(self, fn):
-        self.model.load(fn)  #python rapper bug
+        self.model = cv2.ml.SVM_load(fn)  #python rapper bug
     def save(self, fn):
         self.model.save(fn)
 
@@ -69,6 +69,7 @@ def hog_single(img):
 
 	samples.append(hist)
 	return np.float32(samples)
+
 def trainSVM(num):
     imgs=[]
     for i in range(65,num+65):
@@ -84,9 +85,14 @@ def trainSVM(num):
     #print(samples)
     model = SVM(C=2.67, gamma=5.383) 
     model.train(samples, labels)  # features trained against the labels using svm
+    model.save("ASLClassifier.dat")
     return model
 
+def load(fn):
+    model = cv2.ml.SVM_create()
+    return model.load(fn)
+
 def predict(model,img):
-	samples=hog_single(img)
-	resp=model.predict(samples)
-	return resp
+    samples=hog_single(img)
+    resp=model.predict(samples)
+    return resp
