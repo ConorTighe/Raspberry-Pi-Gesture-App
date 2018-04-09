@@ -13,6 +13,8 @@ import re
 from picamera.array import PiRGBArray
 from picamera import PiCamera
 import io, time
+from threading import Thread
+
 
 #cap = PiCamera(0)
 app = Flask(__name__)
@@ -58,6 +60,7 @@ def camera():
     previouslabel=None # Past label
     previousText=" " # Past text
     label = None # current label
+    
     for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True): # Capture pi camera frames
         stream = frame.array # store frame input as array
         rawCapture.truncate(0) # take optional size
@@ -109,11 +112,18 @@ cv2.destroyAllWindows() # close OpenCV session
 
 # Camera route
 @app.route("/camera2", methods = ['POST'])
-def camera():
+def camera2():
+    camera=PiCamera()
+    camera.resolution = (640, 480)
+    camera.framerate = 32
+    rawCapture = PiRGBArray(camera, size=(320, 240))
+    time.sleep(0.1)
     print("Opening number dectector!")
-    while(cap.isOpened()):
+    for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True): # Capture pi camera frames
+        stream = frame.array # store frame input as array
+        rawCapture.truncate(0) # take optional size
         # read image
-        ret, img = cap.read()
+        img = stream
 
         # get hand data from the rectangle sub window on the screen
         cv2.rectangle(img, (300,300), (100,100), (0,255,0),0)
