@@ -10,9 +10,11 @@ import numpy as np
 import util as ut
 import svm_train as st 
 import re
+from picamera.array import PiRGBArray
+from picamera import PiCamera
+import io, time
 
-
-cap = cv2.VideoCapture(0)
+#cap = PiCamera(0)
 app = Flask(__name__)
 
 # For setting the flags for app
@@ -38,7 +40,16 @@ def camera():
     except:
         model=st.trainSVM(17)
     
-    cap=cv2.VideoCapture(0)
+    #cap=cv2.VideoCapture(0)
+    #cap=PiCamera(0)
+    camera=PiCamera()
+    camera.resolution = (640, 480)
+    camera.framerate = 32
+    rawCapture = PiRGBArray(camera, size=(640, 480))
+    time.sleep(0.1)
+    #rgbFrame = PiRGBArray(camera, size = camera.resolution)
+    #frame1 = captureProcessFrame(camera, rgbFrame, 5)
+    #frameCount = 0
     font = cv2.FONT_HERSHEY_SIMPLEX
     text= " "
 
@@ -46,8 +57,10 @@ def camera():
     previouslabel=None
     previousText=" "
     label = None
-    while(cap.isOpened()):
-        _,img=cap.read()
+    for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
+        stream = frame.array
+        rawCapture.truncate(0)
+        img=stream
         cv2.rectangle(img, (300,300), (100,100), (0,255,0),0)
         img1 = img[100:300, 100:300]
         img_ycrcb = cv2.cvtColor(img1, cv2.COLOR_BGR2YCR_CB)
@@ -84,12 +97,12 @@ def camera():
             
         cv2.imshow('Frame',img)
         #cv2.imshow('Mask',mask)
-        k = 0xFF & cv2.waitKey(10)
-        if k == 27:
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord("q"):
             break
 
 
-cap.release()        
+#cap.release()        
 cv2.destroyAllWindows()
 
 
