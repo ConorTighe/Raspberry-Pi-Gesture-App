@@ -33,7 +33,7 @@ def index():
 @app.route("/camera", methods = ['POST'])
 def camera():
     try:
-        direct = cwd + "\\ASLClassifier.dat"
+        direct = cwd + "/ASLClassifier.dat"
         print(direct)
         model=st.load(direct)
         print("SVM Loaded successfully..")
