@@ -31,7 +31,7 @@ Supervised machine learning algorithms can apply what has been learned in the pa
 A Support Vector Machine (SVM) is a discriminative classifier formally defined by a separating hyperplane. In other words, given labeled training data (supervised learning), the algorithm outputs an optimal hyperplane which categorizes new examples.
 
 #### SVM accuracy:
-The SVM model is a basic but effective way of identifying objects using supervised machine learning with images, but the results can vary, to maxmize your experience of the app we recomemend having a plane background and not moving objects near the hitbox. In the right circumstances this app can be used and a great tool for beginers looking to expand there knollege of communicating with sign langauge without needing a teacher or another person to practice with.
+The SVM model is a basic but effective way of identifying objects using supervised machine learning with images, but the results can vary, to maxmize your experience of the app we recomemend having a plane background and keeping moving objects away from the hitbox. In the right circumstances this app can be used as a great tool for beginers looking to expand there knollege of communicating with sign langauge without needing a teacher or another person to practice with.
 
 ## Gestures identified as appropiate for this application
 
