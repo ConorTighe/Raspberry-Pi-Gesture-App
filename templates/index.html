@@ -26,25 +26,6 @@
 
               console.log(bootstrap_enabled);
               var img = document.getElementById('imgtarget');
-              var tracker = new tracking.ObjectTracker(['face', 'eye', 'mouth']);
-              tracker.setStepSize(1.7);
-              tracking.track('#imgtarget', tracker);
-              tracker.on('track', function(event) {
-                event.data.forEach(function(rect) {
-                console.log("tracker added!");
-                  window.plot(rect.x, rect.y, rect.width, rect.height);
-                });
-              });
-              window.plot = function(x, y, w, h) {
-                var rect = document.createElement('div');
-                document.querySelector('.demo-container').appendChild(rect);
-                rect.classList.add('rect');
-                rect.style.width = w + 'px';
-                rect.style.height = h + 'px';
-                rect.style.left = (img.offsetLeft + x) + 'px';
-                rect.style.top = (img.offsetTop + y) + 'px';
-              };
-            };
 
             // Display your digit
           	function readURL1(input) {
@@ -77,8 +58,8 @@
 
       <div class="jumbotron">
           <div class="text-center">
-            <h1>Security Camera</h1>
-            <h3 class="display-3">Camera view</h3>
+            <h1>Practice your alphabet in sign language here!</h1>
+            <h3 class="display-3">ASL Converter</h3>
             <form  id="fileupload" action="/camera" method="POST" role="form"
                       enctype = "multipart/form-data" >
                 <input id="digitpredictbtn" onchange="readURL1(this);" class="btn btn-success" type = "submit"/>
@@ -89,8 +70,8 @@
       <div class="demo-container">
         <div class="jumbotron">
           <div class="text-center">
-            <h4>Apply face regognision to captured images.</h4>
-           <img id="imgtarget" class="img-thumbnail" src="../static/assets/img.jpg" />
+            <h4>Cheat sheet for learning American Sign Language.</h4>
+           <img id="imgtarget" class="img-thumbnail" src="../static/assets/ASL.jpg" />
            </div>
         </div>
       </div>
