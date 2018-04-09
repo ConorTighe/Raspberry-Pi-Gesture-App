@@ -34,7 +34,7 @@ def index():
 def camera():
     print("Opening ASL Model!")
     try:
-        direct = cwd + "\\ASLClassifier.dat"
+        direct = cwd + "/ASLClassifier.dat"
         print(direct)
         model=st.load(direct)
         print("SVM Loaded successfully..")
