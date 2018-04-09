@@ -56,25 +56,40 @@
          </div>
     </nav>
 
-      <div class="jumbotron">
           <div class="text-center">
             <h1>Practice your alphabet in sign language here!</h1>
-            <h3 class="display-3">ASL Converter</h3>
-            <form  id="fileupload" action="/camera" method="POST" role="form"
-                      enctype = "multipart/form-data" >
-                <input id="digitpredictbtn" onchange="readURL1(this);" class="btn btn-success" type = "submit"/>
-            </form>
+              <div class="col-xs-6 col-xl-6 item">
+                <h3 class="display-3">ASL Converter</h3>
+                <form  id="fileupload" action="/camera" method="POST" role="form"
+                          enctype = "multipart/form-data" >
+                    <input id="digitpredictbtn" onchange="readURL1(this);" class="btn btn-success" type = "submit"/>
+                </form>
+              </div>
+              <div class="col-xs-6 col-xl-6 item">
+                <h3 class="display-3">Number Converter</h3>
+                <form  id="fileupload" action="/camera2" method="POST" role="form"
+                          enctype = "multipart/form-data" >
+                    <input id="digitpredictbtn" onchange="readURL1(this);" class="btn btn-success" type = "submit"/>
+                </form>
+              </div>
+        </div>
+
+      <div class="demo-container">
+        <div class="jumbotron">
+          <div class="text-center">
+            <h4>Cheat sheet for learning American Sign Language.</h4>
+           <img id="imgASL" class="img-thumbnail" src="../static/assets/ASL.jpg" />
+           </div>
         </div>
       </div>
 
       <div class="demo-container">
         <div class="jumbotron">
           <div class="text-center">
-            <h4>Cheat sheet for learning American Sign Language.</h4>
-           <img id="imgtarget" class="img-thumbnail" src="../static/assets/ASL.jpg" />
+            <h4>Picture from OpenCV session.</h4>
+           <img id="imgtarget" class="img-thumbnail" src="../static/assets/img1.jpg" />
            </div>
         </div>
       </div>
-
   </body>
 </html>
