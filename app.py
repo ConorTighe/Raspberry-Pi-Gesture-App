@@ -224,8 +224,8 @@ def camera2():
         all_img = np.hstack((drawing, crop_img))
         cv2.imshow('Contours', all_img)
 
-        k = cv2.waitKey(10)
-        if k == 27:
+        k = cv2.waitKey(1) & 0xFF
+        if k == ord("q"):
             break
 
 @app.errorhandler(404) # error? tell user
