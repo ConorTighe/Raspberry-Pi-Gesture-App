@@ -1,6 +1,6 @@
 import argparse
 import json
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 import requests
 import cv2
 import numpy as np
@@ -13,7 +13,8 @@ import re
 from picamera.array import PiRGBArray
 from picamera import PiCamera
 import io, time
-from threading import Thread
+
+
 
 
 #cap = PiCamera(0)
@@ -103,11 +104,13 @@ def camera():
         #cv2.imshow('Mask',mask)
         key = cv2.waitKey(1) & 0xFF # wait for q to quit
         if key == ord("q"): # is Q?
+            #cap.release()        
+            cv2.destroyAllWindows() # close OpenCV session
+            camera.close()
             break # stop while
 
+    return render_template("index.html")
 
-#cap.release()        
-cv2.destroyAllWindows() # close OpenCV session
 
 
 # Camera route
