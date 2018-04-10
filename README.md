@@ -46,7 +46,7 @@ The Raspberry Pi is open hardware, with the exception of the primary chip on the
 The Raspberry Pi model used for this project is a [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) which is the third generation Raspberry Pi. This model has a Quad-Core 64bit CPU, 1GB RAM, 4 x USB ports, 4 pole Stereo output and Composite video port, HDMI, Ethernet port, CSI Camera port, DSI display port, Micro SD port,  Wifi and Bluetooth.
 
 ## Architecture for the solution
-#### Flask
+#### Python
 [![PyPI](https://img.shields.io/pypi/pyversions/Django.svg)]()
 
 The main programming language used in this problem sheet is [Python](https://www.python.org/)
@@ -54,16 +54,21 @@ The main programming language used in this problem sheet is [Python](https://www
 #### Flask
 [Flask](http://flask.pocoo.org/) is a Python micro web framework that provides tools, libraries and technologies that allow us to build a web application. 
 
-#### Raspberry Pi 3
+
+#### OpenCv
+[OpenCV (Open Source Computer Vision Library)](https://opencv.org/) is an open source computer vision and machine learning software library. OpenCV was built to provide a common infrastructure for computer vision applications and to accelerate the use of machine perception in the commercial products.
+
+The library has more than 2500 optimized algorithms, which includes a comprehensive set of both classic and state-of-the-art computer vision and machine learning algorithms. These algorithms can be used to detect and recognize faces, identify objects, classify human actions in videos, track camera movements, track moving objects, extract 3D models of objects, produce 3D point clouds from stereo cameras, stitch images together to produce a high resolution image of an entire scene, find similar images from an image database, remove red eyes from images taken using flash, follow eye movements, recognize scenery and establish markers to overlay it with augmented reality, etc. OpenCV has more than 47 thousand people of user community and estimated number of downloads exceeding 14 million. The library is used extensively in companies, research groups and by governmental bodies.
+
+It has C++, Python, Java and MATLAB interfaces and supports Windows, Linux, Android and Mac OS.
+
+#### Raspberry Pi 
 
 https://www.pyimagesearch.com/2017/09/04/raspbian-stretch-install-opencv-3-python-on-your-raspberry-pi/
-#### OpenCv
-#### Flask
-#### Python
-
 ## Conclusion & Recommendations
 
 
 # Refrences
+- [OpenCV](https://opencv.org/about.html)
 - [Supervised machine learning](http://www.expertsystem.com/machine-learning-definition/)
 - [SVM](https://docs.opencv.org/2.4/doc/tutorials/ml/introduction_to_svm/introduction_to_svm.html)
