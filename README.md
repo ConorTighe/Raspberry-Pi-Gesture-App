@@ -48,13 +48,15 @@ A [Raspberry Pi](https://www.raspberrypi.org/) is a credit card-sized computer o
 The Raspberry Pi is open hardware, with the exception of the primary chip on the Raspberry Pi, the [Broadcomm SoC](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bcm2837/README.md) (System on a Chip), which runs many of the main components of the board–CPU, graphics, memory, the USB controller, etc. 
 
 The Raspberry Pi model used for this project is a [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) which is the third generation Raspberry Pi. This model has a Quad-Core 64bit CPU, 1GB RAM, 4 x USB ports, 4 pole Stereo output and Composite video port, HDMI, Ethernet port, CSI Camera port, DSI display port, Micro SD port,  Wifi and Bluetooth.
-
+<p align="center"> 
 ![](https://user-images.githubusercontent.com/22341150/38555690-f7a5ee84-3cbe-11e8-9622-2c7700dcbfc5.jpg)
+</p>
 
 #### Camera Module V2
 The v2 Camera Module has a Sony IMX219 8-megapixel sensor. It supports 1080p30, 720p60 and VGA90 video modes, as well as still capture. The camera works with all models of Raspberry Pi 1, 2, and 3. It can be accessed through the MMAL and V4L APIs, and there are numerous third-party libraries built for it, including the Picamera Python library. It attaches via a 15cm ribbon cable to the CSI port on the Raspberry Pi.
-
+<p align="center"> 
 ![](https://user-images.githubusercontent.com/22341150/38555697-01d20460-3cbf-11e8-9c04-625d9effda03.jpg)
+</p>
 
 ## Architecture for the solution
 #### Python
