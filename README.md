@@ -11,14 +11,20 @@ This repository contains a project for 4th Year module Gesture Based UI Developm
 1. Download the [zip](https://github.com/ConorTighe1995/Raspberry-Pi-Gesture-App/archive/master.zip)
 2. Extract/Unzip the repository
 3. Open a command terminal.
-4. Go to the directory where the repository is located.
-For example: 
-```shell
-cd Desktop/Raspberry-Pi-Gesture-App
+4. To run the application, we need to run a python virtual environment. A virtual environment is a special tool used to keep the dependencies required by different projects in separate places by creating isolated, independent Python environments for each of them. To run the virtual environment, enter the following:
+```bash
+pi@raspberrypi:~ $ source ~/.profile
+
+pi@raspberrypi:~ $ workon cv
 ```
-5. To run the application, enter:
-```shell
-python app.py
+5. Once in the virtual environment (cv), go to the the directory where the repository is located. For example:
+```bash
+(cv) pi@raspberrypi:~ $ cd Desktop
+(cv) pi@raspberrypi:/Desktop $ cd Raspberry-Pi-Gesture-App
+```
+6. Run the application:
+```bash
+(cv) pi@raspberrypi:/Desktop/Raspberry-Pi-Gesture-App $ python app.y
 ```
 
 You should then be asked to navigate to 'http://127.0.0.1:5000/' in your browser. From here you can choose the ASL(American Sign Language) option or the sign langauge number convertor. If you choose 
