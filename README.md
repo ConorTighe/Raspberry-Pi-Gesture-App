@@ -10,11 +10,11 @@ This repository contains a project for 4th Year module Gesture Based UI Developm
 3. Open a command terminal.
 4. Go to the directory where the repository is located.
 For example: 
-```bash
+```shell
 cd Desktop/Raspberry-Pi-Gesture-App
 ```
 5. To run the application, enter:
-```bash
+```shell
 python app.py
 ```
 
@@ -53,7 +53,7 @@ The Raspberry Pi model used for this project is a [Raspberry Pi 3 Model B](https
 </p>
 
 #### Camera Module V2
-The v2 Camera Module has a Sony IMX219 8-megapixel sensor. It supports 1080p30, 720p60 and VGA90 video modes, as well as still capture. The camera works with all models of Raspberry Pi 1, 2, and 3. It can be accessed through the MMAL and V4L APIs, and there are numerous third-party libraries built for it, including the Picamera Python library. It attaches via a 15cm ribbon cable to the CSI port on the Raspberry Pi.
+The v2 Camera Module has a Sony IMX219 8-megapixel sensor. It supports 1080p30, 720p60 and VGA90 video modes, as well as still capture. The camera works with all models of Raspberry Pi 1, 2, and 3. It can be accessed through the MMAL and V4L APIs, and there are numerous third-party libraries built for it, including the Picamera Python library which is used in this project. It attaches via a 15cm ribbon cable to the CSI port on the Raspberry Pi.
 <p align="center">
   <img src="https://user-images.githubusercontent.com/22341150/38555697-01d20460-3cbf-11e8-9c04-625d9effda03.jpg">
 </p>
