@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <!-- trackingjs imports -->
-    <script src="{{url_for('static', filename='./tracking.js-master/build/tracking-min.js')}}"></script>
-    <script src="{{url_for('static', filename='./tracking.js-master/build/data/face-min.js')}}"></script>
-    <script src="{{url_for('static', filename='./tracking.js-master/build/data/eye-min.js')}}"></script>
-    <script src="{{url_for('static', filename='./tracking.js-master/build/data/mouth-min.js')}}"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -20,31 +15,12 @@
     </style>
 
     <script>
-              window.onload = function() {
+           window.onload = function() {
               // Will be true if bootstrap is loaded, false otherwise
-              var bootstrap_enabled = (typeof $().modal == 'function');
+            var bootstrap_enabled = (typeof $().modal == 'function');
 
               console.log(bootstrap_enabled);
-              var img = document.getElementById('imgtarget');
-              var tracker = new tracking.ObjectTracker(['face', 'eye', 'mouth']);
-              tracker.setStepSize(1.7);
-              tracking.track('#imgtarget', tracker);
-              tracker.on('track', function(event) {
-                event.data.forEach(function(rect) {
-                console.log("tracker added!");
-                  window.plot(rect.x, rect.y, rect.width, rect.height);
-                });
-              });
-              window.plot = function(x, y, w, h) {
-                var rect = document.createElement('div');
-                document.querySelector('.demo-container').appendChild(rect);
-                rect.classList.add('rect');
-                rect.style.width = w + 'px';
-                rect.style.height = h + 'px';
-                rect.style.left = (img.offsetLeft + x) + 'px';
-                rect.style.top = (img.offsetTop + y) + 'px';
-              };
-            };
+            var img = document.getElementById('imgtarget');
 
             // Display your digit
           	function readURL1(input) {
@@ -59,6 +35,7 @@
               reader.readAsDataURL(input.files[0]);
               }
             }
+          }
     </script>
 
   <body>
@@ -75,25 +52,40 @@
          </div>
     </nav>
 
-      <div class="jumbotron">
           <div class="text-center">
-            <h1>Security Camera</h1>
-            <h3 class="display-3">Camera view</h3>
-            <form  id="fileupload" action="/camera" method="POST" role="form"
-                      enctype = "multipart/form-data" >
-                <input id="digitpredictbtn" onchange="readURL1(this);" class="btn btn-success" type = "submit"/>
-            </form>
+            <h1>Practice your alphabet in sign language here!</h1>
+              <div class="col-xs-6 col-xl-6 item">
+                <h3 class="display-3">ASL Converter</h3>
+                <form  id="fileupload" action="/camera" method="POST" role="form"
+                          enctype = "multipart/form-data" >
+                    <input id="digitpredictbtn" onchange="readURL1(this);" class="btn btn-success" type = "submit"/>
+                </form>
+              </div>
+              <div class="col-xs-6 col-xl-6 item">
+                <h3 class="display-3">Number Converter</h3>
+                <form  id="fileupload" action="/camera2" method="POST" role="form"
+                          enctype = "multipart/form-data" >
+                    <input id="digitpredictbtn" onchange="readURL1(this);" class="btn btn-success" type = "submit"/>
+                </form>
+              </div>
+        </div>
+
+      <div class="demo-container">
+        <div class="jumbotron">
+          <div class="text-center">
+            <h4>Cheat sheet for learning American Sign Language.</h4>
+           <img id="imgASL" class="img-thumbnail" src="../static/assets/ASL.jpg" />
+           </div>
         </div>
       </div>
 
       <div class="demo-container">
         <div class="jumbotron">
           <div class="text-center">
-            <h4>Apply face regognision to captured images.</h4>
-           <img id="imgtarget" class="img-thumbnail" src="../static/assets/img.jpg" />
+            <h4>Picture from OpenCV session.</h4>
+           <img id="imgtarget" class="img-thumbnail" src="../static/assets/img1.jpg" />
            </div>
         </div>
       </div>
-
   </body>
 </html>
