@@ -80,9 +80,7 @@ It has C++, Python, Java and MATLAB interfaces and supports Windows, Linux, Andr
 
 
 ## Conclusion & Recommendations
-In this project, we have taken a raspberry pi and used it to run our gesture based flask web app. We have learned and gained a lot working with a Raspberry Pi and OpenCV. It was something different and challanging. It was interesting to work on the gesture recognition and to dive into machine learning. 
-
-Although the process of installing OpenCV onto the Raspberry Pi was a long and tedious process, it was very rewarding when we got it working with our Web app. 
+In this project, we have taken a raspberry pi and used it to run our gesture based flask web app. We have learned and gained a lot working with a Raspberry Pi and OpenCV. It was something different and challanging. It was interesting to work on the gesture recognition and to dive into machine learning. We did encounter some problems along the way but with help from stack overflow and other forums, we managed our way through to a working application. Majoity of the problems were related to the installation of openCV on the Raspberry Pi. Since the Raspberry Pi is such a small and lightweight computer and OpenCV is a vast and heavy use library, it wasn't an easy process. Following the OpenCV [tutorial](https://www.pyimagesearch.com/2017/09/04/raspbian-stretch-install-opencv-3-python-on-your-raspberry-pi/) mentioned above, we had to change around with the settings on the Pi and be patient with the compile process. After successfully installating OpenCV, we were able to run our gesture app on the Raspberry Pi using the Pi Camera Module. 
 
 # Refrences
 - [OpenCV](https://opencv.org/about.html)
