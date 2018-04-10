@@ -117,7 +117,7 @@ def camera():
 @app.route("/camera2", methods = ['POST'])
 def camera2():
     camera=PiCamera()
-    camera.resolution = (640, 480)
+    camera.resolution = (320, 240)
     camera.framerate = 32
     rawCapture = PiRGBArray(camera, size=(320, 240))
     time.sleep(0.1)
@@ -229,6 +229,9 @@ def camera2():
 
         k = cv2.waitKey(1) & 0xFF
         if k == ord("q"):
+            cv2.destroyAllWindows() # close OpenCV session
+            camera.close()
+            return redirect(url_for("index"))
             break
 
 @app.errorhandler(404) # error? tell user
