@@ -14,14 +14,17 @@ This project is hosted by Flask, in order to run the app you must do the followi
 
 3. enter 'SET FLASK_APP=app.py' into the console.
 
-4. enter 'flask run'
+4. Enter:
+```Bash
+ > flask run
+ ```
 
 You should then be asked to navigate to 'http://127.0.0.1:5000/' in your browser. From here you can choose the ASL(American Sign Language) option or the sign langauge number convertor. If you choose 
 the ASL option the classifier should load, if the classifier cannot be found then the application will attempt to start training images for recognision. If this happens make sure the TrainData file is unzipped 
 and the location is avalible on your machine or you will see errors appear asking for these images.
 
-#### The app is running! now how do I actually use it?
-Don't hold your hand in the hitbox while change signs as this confuses the model and creates randonm results, we recommend making the sign outside the box and then moving it in for detections. press Q on the keyboard to quit the detection window.
+#### The app is running! Now how do I actually use it?
+Don't hold your hand in the hitbox while change signs as this confuses the model and creates randonm results, we recommend making the sign outside the box and then moving it in for detections. Press Q on the keyboard to quit the detection window.
 
 ## Machine learning
 ### How does the app recognise the gestures?
@@ -43,8 +46,23 @@ The Raspberry Pi is open hardware, with the exception of the primary chip on the
 The Raspberry Pi model used for this project is a [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) which is the third generation Raspberry Pi. This model has a Quad-Core 64bit CPU, 1GB RAM, 4 x USB ports, 4 pole Stereo output and Composite video port, HDMI, Ethernet port, CSI Camera port, DSI display port, Micro SD port,  Wifi and Bluetooth.
 
 ## Architecture for the solution
+#### Flask
+[![PyPI](https://img.shields.io/pypi/pyversions/Django.svg)]()
+
+The main programming language used in this problem sheet is [Python](https://www.python.org/)
+
+#### Flask
+[Flask](http://flask.pocoo.org/) is a Python micro web framework that provides tools, libraries and technologies that allow us to build a web application. 
+
+#### Raspberry Pi 3
+
+https://www.pyimagesearch.com/2017/09/04/raspbian-stretch-install-opencv-3-python-on-your-raspberry-pi/
+#### OpenCv
+#### Flask
+#### Python
 
 ## Conclusion & Recommendations
+
 
 # Refrences
 - [Supervised machine learning](http://www.expertsystem.com/machine-learning-definition/)
