@@ -49,7 +49,7 @@ A [Support Vector Machine (SVM)](https://docs.opencv.org/2.4/doc/tutorials/ml/in
 The [SVM](https://docs.opencv.org/2.4/doc/tutorials/ml/introduction_to_svm/introduction_to_svm.html) model is a basic but effective way of identifying objects using supervised machine learning with images, but the results can vary, to maxmize your experience of the app we recomemend having a plane background and keeping moving objects away from the hitbox. In the right circumstances this app can be used as a great tool for beginers looking to expand there knollege of communicating with sign langauge without needing a teacher or another person to practice with.
 
 ## Gestures identified as appropiate for this application
-(static/assets/ASL.jpg "Gesturefile")
+[Gestures](static/assets/ASL.jpg "Gesturefile")
 ## Hardware used in creating the application
 #### Raspberry Pi 3 Model B
 A [Raspberry Pi](https://www.raspberrypi.org/) is a credit card-sized computer originally designed for education, inspired by the 1981 BBC Micro. Creator Eben Upton's goal was to create a low-cost device that would improve programming skills and hardware understanding at the pre-university level. But thanks to its small size and accessible price, it was quickly adopted by students and electronics enthusiasts for projects that require more than a basic microcontroller (such as Arduino devices). It is slower than a modern laptop or desktop computer but is still a complete Linux computer and can provide all the expected abilities that implies, at a low-power consumption level.
