@@ -34,10 +34,10 @@ The application will allow users to practice [Sign Language](https://en.wikipedi
 Supervised machine learning algorithms can apply what has been learned in the past to new data using labeled examples to predict future events. Starting from the analysis of a known training dataset, the learning algorithm produces an inferred function to make predictions about the output values. The system is able to provide targets for any new input after sufficient training. The learning algorithm can also compare its output with the correct, intended output and find errors in order to modify the model accordingly.
 
 #### What is the SVM Model that performs the gesture recognition?
-A Support Vector Machine (SVM) is a discriminative classifier formally defined by a separating hyperplane. In other words, given labeled training data (supervised learning), the algorithm outputs an optimal hyperplane which categorizes new examples.
+A [Support Vector Machine (SVM)](https://docs.opencv.org/2.4/doc/tutorials/ml/introduction_to_svm/introduction_to_svm.html) is a discriminative classifier formally defined by a separating hyperplane. In other words, given labeled training data (supervised learning), the algorithm outputs an optimal hyperplane which categorizes new examples.
 
 #### SVM accuracy:
-The SVM model is a basic but effective way of identifying objects using supervised machine learning with images, but the results can vary, to maxmize your experience of the app we recomemend having a plane background and keeping moving objects away from the hitbox. In the right circumstances this app can be used as a great tool for beginers looking to expand there knollege of communicating with sign langauge without needing a teacher or another person to practice with.
+The [SVM](https://docs.opencv.org/2.4/doc/tutorials/ml/introduction_to_svm/introduction_to_svm.html) model is a basic but effective way of identifying objects using supervised machine learning with images, but the results can vary, to maxmize your experience of the app we recomemend having a plane background and keeping moving objects away from the hitbox. In the right circumstances this app can be used as a great tool for beginers looking to expand there knollege of communicating with sign langauge without needing a teacher or another person to practice with.
 
 ## Gestures identified as appropiate for this application
 
