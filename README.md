@@ -2,22 +2,24 @@
 #### *Gesture Based UI Development - Lecturer: Damien Costello - 4th Year (Hons) Software Development, GMIT*
 This repository contains a project for 4th Year module Gesture Based UI Development, developed by [Conor Tighe](https://github.com/ConorTighe1995) and [Ian Burke](https://github.com/ianburkeixiv). The project is a gesture based sign language Web App using [Flask](http://flask.pocoo.org/) as the server, a [Raspberry Pi 3](https://www.raspberrypi.org/) and [PiCamera module](https://www.raspberrypi.org/documentation/usage/camera/README.md), and [OpenCV](https://opencv.org/) for gesture recognition.
 
+**_Click [here](https://github.com/ConorTighe1995/Raspberry-Pi-Gesture-App/blob/master/Installation%20and%20Configuration%20Guide.docx) for the Installation and Configuration Guide_**
+
+## How to run
+1. Download the [zip](https://github.com/ConorTighe1995/Raspberry-Pi-Gesture-App/archive/master.zip)
+2. Extract/Unzip the repository
+3. Open a command terminal.
+4. Go to the directory where the repository is located.
+For example: 
+```bash
+cd Desktop/Raspberry-Pi-Gesture-App
+```
+5. To run the application, enter:
+```bash
+python app.py
+```
+
 ## Purpose of the application
 The application will allow users to practice [Sign Language](https://en.wikipedia.org/wiki/Sign_language) by printing out a letter based on their hand gesture. When the Web Application is running, a user can press a button to turn on the Raspberry Pi Camera Module where a window opens up displaying the live video stream. A rectangle box is displayed on the screen where users place their hand in to make gestures. The program reads these gestures and returns a printed letter to the screen based on a certain hand gesture.
-
-### User guide
-This project is hosted by Flask, in order to run the app you must do the following:
-
-1. Open the command line
-
-2. Navigate to the project location on your operating system
-
-3. enter 'SET FLASK_APP=app.py' into the console.
-
-4. Enter:
-```Bash
- > flask run
- ```
 
 You should then be asked to navigate to 'http://127.0.0.1:5000/' in your browser. From here you can choose the ASL(American Sign Language) option or the sign langauge number convertor. If you choose 
 the ASL option the classifier should load, if the classifier cannot be found then the application will attempt to start training images for recognision. If this happens make sure the TrainData file is unzipped 
@@ -49,11 +51,10 @@ The Raspberry Pi model used for this project is a [Raspberry Pi 3 Model B](https
 #### Python
 [![PyPI](https://img.shields.io/pypi/pyversions/Django.svg)]()
 
-The main programming language used in this problem sheet is [Python](https://www.python.org/)
+The main programming language used in this project is [Python.](https://www.python.org/)
 
 #### Flask
 [Flask](http://flask.pocoo.org/) is a Python micro web framework that provides tools, libraries and technologies that allow us to build a web application. 
-
 
 #### OpenCv
 [OpenCV (Open Source Computer Vision Library)](https://opencv.org/) is an open source computer vision and machine learning software library. OpenCV was built to provide a common infrastructure for computer vision applications and to accelerate the use of machine perception in the commercial products.
@@ -62,7 +63,6 @@ The library has more than 2500 optimized algorithms, which includes a comprehens
 
 It has C++, Python, Java and MATLAB interfaces and supports Windows, Linux, Android and Mac OS.
 
-#### Raspberry Pi 
 
 https://www.pyimagesearch.com/2017/09/04/raspbian-stretch-install-opencv-3-python-on-your-raspberry-pi/
 ## Conclusion & Recommendations
