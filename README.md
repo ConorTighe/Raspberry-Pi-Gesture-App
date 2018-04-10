@@ -80,7 +80,7 @@ It has C++, Python, Java and MATLAB interfaces and supports Windows, Linux, Andr
 
 
 ## Conclusion & Recommendations
-
+Although the process of installing OpenCV onto the Raspberry Pi was a long and tedious process, it was very rewarding when we got it working with our Web app. 
 
 # Refrences
 - [OpenCV](https://opencv.org/about.html)
