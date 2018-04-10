@@ -80,6 +80,8 @@ It has C++, Python, Java and MATLAB interfaces and supports Windows, Linux, Andr
 
 
 ## Conclusion & Recommendations
+In this project, we have taken a raspberry pi and used it to run our gesture based flask web app. We have learned and gained a lot working with a Raspberry Pi and OpenCV. It was something different and challanging. It was interesting to work on the gesture recognition and to dive into machine learning. 
+
 Although the process of installing OpenCV onto the Raspberry Pi was a long and tedious process, it was very rewarding when we got it working with our Web app. 
 
 # Refrences
