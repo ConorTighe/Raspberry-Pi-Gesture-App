@@ -48,6 +48,8 @@ The Raspberry Pi is open hardware, with the exception of the primary chip on the
 
 The Raspberry Pi model used for this project is a [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) which is the third generation Raspberry Pi. This model has a Quad-Core 64bit CPU, 1GB RAM, 4 x USB ports, 4 pole Stereo output and Composite video port, HDMI, Ethernet port, CSI Camera port, DSI display port, Micro SD port,  Wifi and Bluetooth.
 
+![](https://user-images.githubusercontent.com/22341150/38553357-ef3875c6-3cb6-11e8-81e8-3eceee7686fe.jpg)
+
 ## Architecture for the solution
 #### Python
 [![PyPI](https://img.shields.io/pypi/pyversions/Django.svg)]()
