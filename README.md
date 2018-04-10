@@ -63,7 +63,7 @@ The v2 Camera Module has a Sony IMX219 8-megapixel sensor. It supports 1080p30, 
 
 ## Architecture for the solution
 #### Python
-[![PyPI](https://img.shields.io/pypi/pyversions/Django.svg)]()
+[![PyPI](https://img.shields.io/pypi/pyversions/Django.svg)]
 
 The main programming language used in this project is [Python.](https://www.python.org/)
 
