@@ -29,6 +29,7 @@ app.config['MONGO_URI'] = 'mongodb://gesturebasedBT2:password@ds241489.mlab.com:
 
 mongo = PyMongo(app) # Initialise connection to mongo database.
 
+app.secret_key = "mysecret"
 # For setting the flags for app
 FLAGS = None
 
@@ -316,11 +317,9 @@ def page_not_found(e):
     
 if __name__ == "__main__": # init app
     print("Running gesture based app...")
-<<<<<<< HEAD
     app.run(threaded=True)
-=======
     # In order to use sessions you have to set a secret key for encryption purposes as a user could hack into the contents of a cookie and modify if there was no secret key used for signing the cookies.
-    app.secret_key = 'mysecret' 
+    
+    
     app.run()
->>>>>>> 2055e8c0dc38a57adddb9219ba18bea8e377f880
     
