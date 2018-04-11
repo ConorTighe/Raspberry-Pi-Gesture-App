@@ -144,7 +144,7 @@ def camera2():
                                 cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
 
         # show thresholded image
-        cv2.imshow('Thresholded', thresh1)
+        #cv2.imshow('Thresholded', thresh1)
 
         # check OpenCV version to avoid unpacking error
         (version, _, _) = cv2.__version__.split('.')
@@ -225,7 +225,7 @@ def camera2():
         # show appropriate images in windows
         cv2.imshow('Gesture', img)
         all_img = np.hstack((drawing, crop_img))
-        cv2.imshow('Contours', all_img)
+        #cv2.imshow('Contours', all_img)
 
         k = cv2.waitKey(1) & 0xFF
         if k == ord("q"):
@@ -242,5 +242,5 @@ def page_not_found(e):
     
 if __name__ == "__main__": # init app
     print("Running gesture based app...")
-    app.run()
+    app.run(threaded=True)
     
