@@ -63,7 +63,7 @@ def register():
             # Add new user to users collection along with password
             users.insert({'name' : request.form['username'], 'password' : hashpass})
             # Activate a session using that username
-            session['username'] = request.form['username']
+            # session['username'] = request.form['username']
         # Once user is registered.. return login page for them to login
             return redirect(url_for('login'))
         else:
