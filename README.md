@@ -50,7 +50,7 @@ The [SVM](https://docs.opencv.org/2.4/doc/tutorials/ml/introduction_to_svm/intro
 
 ### User Authentication
 #### Session
-To implement a user login and registration service to the web app, a session is needed to allow you to store information specific to a user from one request to the next. It keeps track of the active user until the user logs out. Session allows us to restrict users from certain weather services. If a person is not registered on the web app then they are restricted and cannot access extra features such as weather data. Sessions is implemented on top of cookies and signs the cookies cryptographically.
+To implement a user login and registration service to the web app, a session is needed to allow you to store information specific to a user from one request to the next. It keeps track of the active user until the user logs out. Session allows us to restrict users from certain features such as the gesture recognition. If a person is not registered on the web app then they are restricted from the features. Sessions is implemented on top of cookies and signs the cookies cryptographically.
 
 ![](https://user-images.githubusercontent.com/22341150/39085860-04aa195a-4581-11e8-904e-768da53181cc.PNG)
 
