@@ -55,6 +55,11 @@ To implement a user login and registration service to the web app, a session is 
 #### Message Flashing
 Flashing messages was introduced to let users know if they are signed in or logged out. Good applications and user interfaces are all about feedback. The flashing system basically makes it possible to record a message at the end of a request and access it on the next request. By using the Jinja template engine that’s included in Flask, we were able to display a message across the page when the user signs in or logs out.
 
+![](https://user-images.githubusercontent.com/22341150/39085836-8f494bc2-4580-11e8-89c8-d85706838c9d.PNG)
+
+![](https://user-images.githubusercontent.com/22341150/39085784-e267359a-457f-11e8-9913-5c6735c7daca.PNG)
+
+
 #### Password Hashing
 When you have user accounts and you give them passwords to those accounts, it is very important that the passwords are not stored in the database unhashed. However, just hashing the passwords is barely more secure because of Rainbow table attacks. A rainbow table attack is a type of hacking where the attacker uses a rainbow hash table to crack the passwords stored in a database system. The attacker will take a dictionary of words or a list of common passwords and hashes those words using a specific function (md5 or SHA) which are organised then in a list and compare that list with the hashes in a database with the objective to find a matching hash.  To counter this, a salt is added to the hashed passwords. A salt is random generated data that is used as an additional input to a one-way function that hashes passwords. Salts are used to defend against dictionary attacks or rainbow table attacks. Werkzeug provides a security utility helper to add a salt and generate hashed passwords in flask. Werkzeug is a WSGI (Web Server Gateway Interface) utility library for Python. For example:
 ```Python
@@ -67,6 +72,9 @@ check_password_hash(pwhash, password)
 ```
 The check_password_hash() checks that the hashed password passed in is equal to the hashed password in the database.
 
+#### MongoDB Cloud
+
+![](https://user-images.githubusercontent.com/22341150/39085786-e2b97274-457f-11e8-96b1-af26d77d4cf6.PNG)
 
 ## Gestures identified as appropiate for this application
 ![Gestures](static/assets/ASL.jpg "Gesturefile")
