@@ -75,8 +75,7 @@ check_password_hash(pwhash, password)
 The check_password_hash() checks that the hashed password passed in is equal to the hashed password in the database.
 
 #### MongoDB Cloud
-The usernames and hashed passwords are stored in a Mongo cloud database hosted by [mLab](https://mlab.com/)
-[mLab](https://mlab.com/) is a fully managed cloud database service that hosts MongoDB databases. mLab runs on cloud providers Amazon, Google, and Microsoft Azure, and has partnered with platform-as-a-service providers.
+[mLab](https://mlab.com/) is a fully managed cloud database service that hosts MongoDB databases. mLab runs on cloud providers Amazon, Google, and Microsoft Azure, and has partnered with platform-as-a-service providers. Usernames and hashed passwords are stored in the database.
 
 ![](https://user-images.githubusercontent.com/22341150/39085786-e2b97274-457f-11e8-96b1-af26d77d4cf6.PNG)
 
