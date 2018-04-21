@@ -52,6 +52,8 @@ The [SVM](https://docs.opencv.org/2.4/doc/tutorials/ml/introduction_to_svm/intro
 #### Session
 To implement a user login and registration service to the web app, a session is needed to allow you to store information specific to a user from one request to the next. It keeps track of the active user until the user logs out. Session allows us to restrict users from certain weather services. If a person is not registered on the web app then they are restricted and cannot access extra features such as weather data. Sessions is implemented on top of cookies and signs the cookies cryptographically.
 
+![](https://user-images.githubusercontent.com/22341150/39085860-04aa195a-4581-11e8-904e-768da53181cc.PNG)
+
 #### Message Flashing
 Flashing messages was introduced to let users know if they are signed in or logged out. Good applications and user interfaces are all about feedback. The flashing system basically makes it possible to record a message at the end of a request and access it on the next request. By using the Jinja template engine that’s included in Flask, we were able to display a message across the page when the user signs in or logs out.
 
@@ -73,6 +75,8 @@ check_password_hash(pwhash, password)
 The check_password_hash() checks that the hashed password passed in is equal to the hashed password in the database.
 
 #### MongoDB Cloud
+The usernames and hashed passwords are stored in a Mongo cloud database hosted by [mLab](https://mlab.com/)
+[mLab](https://mlab.com/) is a fully managed cloud database service that hosts MongoDB databases. mLab runs on cloud providers Amazon, Google, and Microsoft Azure, and has partnered with platform-as-a-service providers.
 
 ![](https://user-images.githubusercontent.com/22341150/39085786-e2b97274-457f-11e8-96b1-af26d77d4cf6.PNG)
 
