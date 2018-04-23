@@ -6,6 +6,8 @@ This repository contains a project for 4th Year module Gesture Based UI Developm
 
 **_Click [here](https://www.pyimagesearch.com/2017/09/04/raspbian-stretch-install-opencv-3-python-on-your-raspberry-pi/) for tutorial on installing OpenCV on the Raspberry Pi_**
 
+**Video Demo:** https://youtu.be/zZEcTDbVVc0
+
 
 ## How to run
 1. Download the [zip](https://github.com/ConorTighe1995/Raspberry-Pi-Gesture-App/archive/master.zip)
