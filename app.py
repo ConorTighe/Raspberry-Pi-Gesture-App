@@ -211,7 +211,7 @@ def camera2():
             str = "Two"
             cv2.putText(img, str, (5, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, 2)
         elif count_defects == 3:
-            path = 'C:/Users/Iano/Desktop'
+            path = cwd
             cv2.imwrite(os.path.join(path , 'img.jpg'), img)
         elif count_defects == 4:
             cv2.putText(img,"4", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
