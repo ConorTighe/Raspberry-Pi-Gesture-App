@@ -1,6 +1,6 @@
 import argparse
 import json
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for, flash, session
 import requests
 import cv2
 import numpy as np
@@ -13,12 +13,23 @@ import re
 from picamera.array import PiRGBArray
 from picamera import PiCamera
 import io, time
-from threading import Thread
+from flask_pymongo import PyMongo # PyMongo allows us to work directly with the mongo database without defining a schema. It is a wrapper for mongodb library in flask 
+from werkzeug.security import generate_password_hash, check_password_hash # Using werkzeug library to encrypt user passwords
+
+
 
 
 #cap = PiCamera(0)
 app = Flask(__name__)
 
+# Configurating our database with flask
+app.config['MONGO_DBNAME'] = 'gesturebasedui' # 'weather' is our db name on mlab
+# URI (Uniform Resource Locator) is supplied by mlab. This identifies and locates where the database is on mlab
+app.config['MONGO_URI'] = 'mongodb://gesturebasedBT2:password@ds241489.mlab.com:41489/gesturebasedui'
+
+mongo = PyMongo(app) # Initialise connection to mongo database.
+
+app.secret_key = "mysecret"
 # For setting the flags for app
 FLAGS = None
 
@@ -28,8 +39,73 @@ cwd = os.getcwd();
 # Home route
 @app.route("/")
 def index():
-    print("serving index...")
-    return render_template("index.html")
+    # if username is logged in
+    if 'username' in session:
+        # flash a message to user to indicate they are logged in.
+        flash("Logged in as " + session['username'])
+        return render_template("index.html")
+    else:
+        return render_template("login.html")
+
+# Registration
+@app.route('/register', methods=['POST', 'GET'])
+def register():
+    error = None
+    if request.method == 'POST':
+        users = mongo.db.Users # Accessing our users collections
+        # Checking to see if a username already exist in the users collection
+        existing_user = users.find_one({'name' : request.form['username']})
+
+        # if theres no existing username
+        if existing_user is None:
+            # Generating sha256 hash from user password
+            hashpass = generate_password_hash(request.form['pass'], method='sha256')
+            # Add new user to users collection along with password
+            users.insert({'name' : request.form['username'], 'password' : hashpass})
+            # Activate a session using that username
+            # session['username'] = request.form['username']
+        # Once user is registered.. return login page for them to login
+            return redirect(url_for('login'))
+        else:
+            error = 'Username already exists'
+            #return redirect(url_for('register'))
+            
+        
+    return render_template('register.html', error=error)
+
+# Login
+@app.route('/login', methods=['GET','POST'])
+def login():
+    error = None # error variable set to None as default.
+    if request.method == 'POST':
+        users = mongo.db.Users # access the users collection in the database
+        # Checking to see if username exists
+        login_user = users.find_one({'name' : request.form['username']})
+
+        if login_user: # if it does exist
+            # check to see if password hash is equal to password hash in the database
+            if check_password_hash(login_user['password'], request.form['pass']):
+                # if password is correct then activate user session using the username
+                session['username'] = request.form['username']
+                return redirect(url_for('index')) # redirect to main route
+            # if password does not match then...
+            else: 
+                # error takes in a string message
+                error = 'Incorrect username/password'
+                #return 'wrong password' # Login failed
+        else:
+            error = 'Incorrect username/password'
+    # return login page and also pass in error message
+    return render_template('login.html', error=error)
+
+# Login
+@app.route("/logout")
+def logout():
+    # remove the username from the session if logout button is pressed
+    session.pop('username', None)
+    # Flash a message to user to indicate they are logged out
+    flash("You are now logged out")
+    return redirect(url_for('index')) # redirect to main route
 
 # Camera route
 @app.route("/camera", methods = ['POST'])
@@ -103,18 +179,20 @@ def camera():
         #cv2.imshow('Mask',mask)
         key = cv2.waitKey(1) & 0xFF # wait for q to quit
         if key == ord("q"): # is Q?
+            #cap.release()        
+            cv2.destroyAllWindows() # close OpenCV session
+            camera.close()
             break # stop while
 
+    return render_template("index.html")
 
-#cap.release()        
-cv2.destroyAllWindows() # close OpenCV session
 
 
 # Camera route
 @app.route("/camera2", methods = ['POST'])
 def camera2():
     camera=PiCamera()
-    camera.resolution = (640, 480)
+    camera.resolution = (320, 240)
     camera.framerate = 32
     rawCapture = PiRGBArray(camera, size=(320, 240))
     time.sleep(0.1)
@@ -141,7 +219,7 @@ def camera2():
                                 cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
 
         # show thresholded image
-        cv2.imshow('Thresholded', thresh1)
+        #cv2.imshow('Thresholded', thresh1)
 
         # check OpenCV version to avoid unpacking error
         (version, _, _) = cv2.__version__.split('.')
@@ -222,10 +300,13 @@ def camera2():
         # show appropriate images in windows
         cv2.imshow('Gesture', img)
         all_img = np.hstack((drawing, crop_img))
-        cv2.imshow('Contours', all_img)
+        #cv2.imshow('Contours', all_img)
 
         k = cv2.waitKey(1) & 0xFF
         if k == ord("q"):
+            cv2.destroyAllWindows() # close OpenCV session
+            camera.close()
+            return redirect(url_for("index"))
             break
 
 @app.errorhandler(404) # error? tell user
@@ -236,5 +317,9 @@ def page_not_found(e):
     
 if __name__ == "__main__": # init app
     print("Running gesture based app...")
+    app.run(threaded=True)
+    # In order to use sessions you have to set a secret key for encryption purposes as a user could hack into the contents of a cookie and modify if there was no secret key used for signing the cookies.
+    
+    
     app.run()
     

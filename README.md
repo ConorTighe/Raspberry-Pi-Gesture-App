@@ -10,7 +10,7 @@ This repository contains a project for 4th Year module Gesture Based UI Developm
 ## How to run
 1. Download the [zip](https://github.com/ConorTighe1995/Raspberry-Pi-Gesture-App/archive/master.zip)
 2. Extract/Unzip the repository
-3. Open a command terminal.
+3. Using a Raspberry Pi, Open a command terminal.
 4. To run the application, we need to run a python virtual environment. A virtual environment is a special tool used to keep the dependencies required by different projects in separate places by creating isolated, independent Python environments for each of them. To run the virtual environment, enter the following:
 ```bash
 pi@raspberrypi:~ $ source ~/.profile
@@ -48,6 +48,37 @@ A [Support Vector Machine (SVM)](https://docs.opencv.org/2.4/doc/tutorials/ml/in
 #### SVM accuracy:
 The [SVM](https://docs.opencv.org/2.4/doc/tutorials/ml/introduction_to_svm/introduction_to_svm.html) model is a basic but effective way of identifying objects using supervised machine learning with images, but the results can vary, to maxmize your experience of the app we recomemend having a plane background and keeping moving objects away from the hitbox. In the right circumstances this app can be used as a great tool for beginers looking to expand there knollege of communicating with sign langauge without needing a teacher or another person to practice with.
 
+### User Authentication
+#### Session
+To implement a user login and registration service to the web app, a session is needed to allow you to store information specific to a user from one request to the next. It keeps track of the active user until the user logs out. Session allows us to restrict users from certain features such as the gesture recognition. If a person is not registered on the web app then they are restricted from the features. Sessions is implemented on top of cookies and signs the cookies cryptographically.
+
+![](https://user-images.githubusercontent.com/22341150/39085860-04aa195a-4581-11e8-904e-768da53181cc.PNG)
+
+#### Message Flashing
+Flashing messages was introduced to let users know if they are signed in or logged out. Good applications and user interfaces are all about feedback. The flashing system basically makes it possible to record a message at the end of a request and access it on the next request. By using the Jinja template engine that’s included in Flask, we were able to display a message across the page when the user signs in or logs out.
+
+![](https://user-images.githubusercontent.com/22341150/39085836-8f494bc2-4580-11e8-89c8-d85706838c9d.PNG)
+
+![](https://user-images.githubusercontent.com/22341150/39085784-e267359a-457f-11e8-9913-5c6735c7daca.PNG)
+
+
+#### Password Hashing
+When you have user accounts and you give them passwords to those accounts, it is very important that the passwords are not stored in the database unhashed. However, just hashing the passwords is barely more secure because of Rainbow table attacks. A rainbow table attack is a type of hacking where the attacker uses a rainbow hash table to crack the passwords stored in a database system. The attacker will take a dictionary of words or a list of common passwords and hashes those words using a specific function (md5 or SHA) which are organised then in a list and compare that list with the hashes in a database with the objective to find a matching hash.  To counter this, a salt is added to the hashed passwords. A salt is random generated data that is used as an additional input to a one-way function that hashes passwords. Salts are used to defend against dictionary attacks or rainbow table attacks. Werkzeug provides a security utility helper to add a salt and generate hashed passwords in flask. Werkzeug is a WSGI (Web Server Gateway Interface) utility library for Python. For example:
+```Python
+from werkzeug.security import generate_password_hash, check_password_hash 
+generate_password_hash(password, method='pbkdf2:sha256', salt_length=8) 
+```
+This helper uses a one-way function to create a hash that is not reversible from the passed in plain text password. The method sets the hashing algorithm to use and the salt_length sets the length of the salt in letters. 
+```Python
+check_password_hash(pwhash, password)
+```
+The check_password_hash() checks that the hashed password passed in is equal to the hashed password in the database.
+
+#### MongoDB Cloud
+[mLab](https://mlab.com/) is a fully managed cloud database service that hosts MongoDB databases. mLab runs on cloud providers Amazon, Google, and Microsoft Azure, and has partnered with platform-as-a-service providers. Usernames and hashed passwords are stored in the database.
+
+![](https://user-images.githubusercontent.com/22341150/39085786-e2b97274-457f-11e8-96b1-af26d77d4cf6.PNG)
+
 ## Gestures identified as appropiate for this application
 ![Gestures](static/assets/ASL.jpg "Gesturefile")
 ## Hardware used in creating the application
@@ -81,10 +112,13 @@ The library has more than 2500 optimized algorithms, which includes a comprehens
 
 It has C++, Python, Java and MATLAB interfaces and supports Windows, Linux, Android and Mac OS.
 
+#### MongoDB
+MongoDB is one of the most popular open source NoSQL database that uses a document-oriented data model. It stores data in JSON (JavaScript Object Notation) like documents. It is non-relational database with dynamic schema. MongoDB is horizontally scalable and easy for both the developers and administrators to manage. MongoDB is written in C++ and is currently being used by some big companies like Google, Facebook, Cisco, Ebay and SAP.
 
+In this project, we use MongoDB to store usernames and hashed passwords as past of our user authentication process.
 
 ## Conclusion & Recommendations
-In this project, we have taken a raspberry pi and used it to run our gesture based flask web app. We have learned and gained a lot working with a Raspberry Pi and OpenCV. It was something different and challanging. It was interesting to work on the gesture recognition and to dive into machine learning. We did encounter some problems along the way but with help from stack overflow and other forums, we managed our way through to a working application. Majoity of the problems were related to the installation of openCV on the Raspberry Pi. Since the Raspberry Pi is such a small and lightweight computer and OpenCV is a vast and heavy use library, it wasn't an easy process. Following the OpenCV [tutorial](https://www.pyimagesearch.com/2017/09/04/raspbian-stretch-install-opencv-3-python-on-your-raspberry-pi/) mentioned above, we had to change around with the settings on the Pi and be patient with the compile process. After successfully installating OpenCV, we were able to run our gesture app on the Raspberry Pi using the Pi Camera Module. 
+In this project, we have taken a raspberry pi and used it to run our gesture based flask web app. We have learned and gained a lot working with a Raspberry Pi and OpenCV. It was something different and challanging. It was interesting to work on the gesture recognition and to dive into machine learning. We did encounter some problems along the way but with help from stack overflow and other forums, we managed our way through to a working application. Majoity of the problems were related to the installation of openCV on the Raspberry Pi. Since the Raspberry Pi is such a small and lightweight computer and OpenCV is a vast and heavy use library, it wasn't an easy process. Following the OpenCV [tutorial](https://www.pyimagesearch.com/2017/09/04/raspbian-stretch-install-opencv-3-python-on-your-raspberry-pi/) mentioned above, we had to change around with the settings on the Pi and be patient with the compile process. The next few problems encountered after that was to do with the merging of OpenCV and the Pi Camera. OpenCV is mostly used with usb cameras and laptop web cams and therefore we had to adjust the code around in order for it to work with the Pi Camera module. After that the application ran successfully. It took a lot of work and time but in the end, it was very rewarding to get everything working.
 
 # Refrences
 - [Raspberry Pi](https://www.raspberrypi.org/)

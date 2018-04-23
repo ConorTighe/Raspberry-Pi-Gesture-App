@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% block body %}
+
+<form class="form-signin" method=POST action="{{ url_for('login') }}">
+    
+    <h1 class="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
+    <label for="inputEmail" class="sr-only">Username</label>
+    <input type="text" id="inputEmail" class="form-control" name="username" placeholder="Username" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" class="form-control" name="pass" placeholder="Password" required>
+    
+    <!-- form validation -->
+                <!-- Using jinja here to display an error message if username or password is incorrect -->
+                {% if error %}
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        {{ error }}
+                    </div>
+                {% endif %}
+                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            </form>
+            <br>
+            <div class="text-center">
+                Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a>.  
+            </div>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+</form>
+{% endblock %}
