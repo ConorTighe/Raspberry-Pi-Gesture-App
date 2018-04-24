@@ -9,6 +9,8 @@ This repository contains a project for 4th Year module Gesture Based UI Developm
 ### Video Demo 
 https://youtu.be/zZEcTDbVVc0
 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/zZEcTDbVVc0/0.jpg)](https://youtu.be/zZEcTDbVVc0)
+
 
 ## How to run
 1. Download the [zip](https://github.com/ConorTighe1995/Raspberry-Pi-Gesture-App/archive/master.zip)
