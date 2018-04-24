@@ -2,6 +2,10 @@
 #### *Gesture Based UI Development - Lecturer: Damien Costello - 4th Year (Hons) Software Development, GMIT*
 This repository contains a project for 4th Year module Gesture Based UI Development, developed by [Conor Tighe](https://github.com/ConorTighe1995) and [Ian Burke](https://github.com/ianburkeixiv). The project is a gesture based sign language Web App using [Flask](http://flask.pocoo.org/) as the server, a [Raspberry Pi 3 Model B](https://www.raspberrypi.org/) and [PiCamera module](https://www.raspberrypi.org/documentation/usage/camera/README.md), and [OpenCV](https://opencv.org/) for gesture recognition.
 
+<p align="center"> 
+<img src="https://user-images.githubusercontent.com/22341150/39208148-07ab5fa8-47fa-11e8-8799-88fe0af5432d.PNG">
+</p>
+
 **_Click [here](https://github.com/ConorTighe1995/Raspberry-Pi-Gesture-App/raw/master/Installation%20and%20Configuration%20Guide.docx) for the Raspberry Pi installation and configuration Guide_**
 
 **_Click [here](https://www.pyimagesearch.com/2017/09/04/raspbian-stretch-install-opencv-3-python-on-your-raspberry-pi/) for tutorial on installing OpenCV on the Raspberry Pi_**
