@@ -43,11 +43,12 @@ Don't hold your hand in the hitbox while change signs as this confuses the model
 #### Report an Issue
 ![](https://user-images.githubusercontent.com/22341150/39207168-2ee94150-47f7-11e8-9311-4a32405647c1.gif)
 
-![](https://user-images.githubusercontent.com/22341150/39207398-bcfdace2-47f7-11e8-9216-9b2dfd4ad825.png)
+### Some sign gestures
+![](https://user-images.githubusercontent.com/22341150/39207569-3308e366-47f8-11e8-9c9c-81453041d3f4.png)
 
-![](https://user-images.githubusercontent.com/22341150/39207399-bd1c5a70-47f7-11e8-8c2e-fb5e502a52c6.png)
+![](https://user-images.githubusercontent.com/22341150/39207570-332acb2a-47f8-11e8-9527-cab3fda36b26.png)
 
-![](https://user-images.githubusercontent.com/22341150/39207397-bcdef892-47f7-11e8-8bee-cb07144cdd14.png)
+![](https://user-images.githubusercontent.com/22341150/39207572-3348bd42-47f8-11e8-9455-20700d62d9e7.png)
 
 ## Purpose of the application
 The application will allow users to practice [Sign Language](https://en.wikipedia.org/wiki/Sign_language) by printing out a letter based on their hand gesture. When the Web Application is running, a user can press a button to turn on the Raspberry Pi Camera Module where a window opens up displaying the live video stream. A rectangle box is displayed on the screen where users place their hand in to make gestures. The program reads these gestures and returns a printed letter to the screen based on a certain hand gesture.
