@@ -37,6 +37,10 @@ and the location is avalible on your machine or you will see errors appear askin
 #### The app is running! Now how do I actually use it?
 Don't hold your hand in the hitbox while change signs as this confuses the model and creates randonm results, we recommend making the sign outside the box and then moving it in for detections. Press Q on the keyboard to quit the detection window.
 
+![](https://user-images.githubusercontent.com/22341150/39206697-052b398c-47f6-11e8-81b3-b83f994102a9.gif)
+
+![](https://user-images.githubusercontent.com/22341150/39206695-05078d84-47f6-11e8-9191-fe33310d1b9d.gif)
+
 ## Purpose of the application
 The application will allow users to practice [Sign Language](https://en.wikipedia.org/wiki/Sign_language) by printing out a letter based on their hand gesture. When the Web Application is running, a user can press a button to turn on the Raspberry Pi Camera Module where a window opens up displaying the live video stream. A rectangle box is displayed on the screen where users place their hand in to make gestures. The program reads these gestures and returns a printed letter to the screen based on a certain hand gesture.
 
